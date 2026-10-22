@@ -1,0 +1,129 @@
+<div class="table-responsive">
+  <table class="table transaction-table align-middle mb-0">
+
+    <thead>
+      <tr>
+        <th scope="col">Transaction</th>
+        <th scope="col">Type</th>
+        <th scope="col">Amount</th>
+        <th scope="col">Category</th>
+        <th scope="col">Date</th>
+        @if (showActions()) {
+          <th scope="col" class="text-end">Actions</th>
+        }
+      </tr>
+    </thead>
+
+    <tbody>
+      @for (
+        transaction of transactions();
+        track transaction.id
+      ) {
+        <tr>
+          <td>
+            <div class="transaction-title">
+              <span class="transaction-icon">
+                <i class="bi bi-receipt"></i>
+              </span>
+
+              <span>{{ transaction.title }}</span>
+            </div>
+          </td>
+
+          <td>
+            <span
+              class="transaction-type">
+              {{ transaction.type }}
+            </span>
+          </td>
+
+          <td>
+            <span class="transaction-amount">
+              ₹ {{ transaction.amount }}
+            </span>
+          </td>
+
+          <td>
+            <span class="category-label">
+              {{ transaction.category }}
+            </span>
+          </td>
+
+          <td>
+            <span class="transaction-date">
+              {{ transaction.date }}
+            </span>
+          </td>
+
+          @if (showActions()) {
+            <td>
+            <div class="actionDiv">
+
+              <a
+                [routerLink]="[
+                  '/transactions',
+                  transaction.id,
+                  'edit'
+                ]"
+                class="btn-action btn-edit"
+                aria-label="Edit transaction">
+
+                <i class="bi bi-pencil-square"></i>
+                <span>Edit</span>
+
+              </a>
+
+              <button
+                type="button"
+                class="btn-action btn-delete"
+                (click)="deleteClicked.emit(transaction.id)"
+                aria-label="Delete transaction">
+
+                <i class="bi bi-trash3"></i>
+                <span>Delete</span>
+
+              </button>
+
+            </div>
+          </td>
+          }
+        </tr>
+      }
+    </tbody>
+
+  </table>
+</div>
+
+<!-- <table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Type</th>
+      <th>Amount</th>
+      <th>Category</th>
+      <th>Date</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    @for (
+      transaction of transactions();
+      track transaction.id
+    ) {
+      <tr>
+        <td>{{ transaction.title }}</td>
+        <td>{{ transaction.type }}</td>
+        <td>{{ transaction.amount }}</td>
+        <td>{{ transaction.category }}</td>
+        <td>{{ transaction.date }}</td>
+        <td>
+          <div class="actionDiv">
+            <a [routerLink]="['/transactions',transaction.id,'edit']">Edit</a>
+            <button type="button" (click)="deleteClicked.emit(transaction.id)">Delete</button>
+          </div>
+        </td>
+      </tr>
+    }
+  </tbody>
+</table> -->

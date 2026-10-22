@@ -1,0 +1,74 @@
+<div class="page-header">
+
+  <!-- Left: Title and Subtitle -->
+  <div class="page-heading">
+    <h1>Transactions</h1>
+    <p>Manage and track your income and expenses. <b>|</b> Transactions Count: {{ transactions().length }}</p>
+  </div>
+
+  <!-- Right: Actions -->
+  <div class="page-actions">
+    <button 
+      type="button"
+      class="btn btn-outline-custom" routerLink="/transactions/new">
+   <i class="bi bi-download me-2"></i> Create Transaction
+</button>
+  </div>
+
+</div>
+
+@if (loading()) {
+<app-loading-indicator />
+} @else if (error()) {
+<div class="error">{{ error() }}</div>
+} @else if (transactions().length === 0) {
+<div class="empty">No transactions found.</div>
+} @else {
+  <div class="row mb-3">
+
+  <div class="col-md-6">
+
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Search transactions..."
+      (input)="onSearch($event)"
+    />
+
+  </div>
+
+  <div class="col-md-3">
+
+    <select
+      class="form-select"
+      (change)="onFilter($event)"
+    >
+
+      <option value="all">
+        All
+      </option>
+
+      <option value="income">
+        Income
+      </option>
+
+      <option value="expense">
+        Expense
+      </option>
+
+    </select>
+
+  </div>
+
+</div>
+<!-- <app-transaction-table [transactions]="transactions()" (deleteClicked)="openDeleteDialog($event)" 
+[showActions]="true" /> -->
+<app-transaction-table [transactions]="filteredTransactions()" (deleteClicked)="openDeleteDialog($event)" 
+[showActions]="true" />
+@if (showDeleteDialog()) {
+
+<app-confirmation-dialog title="Delete Transaction" message="Are you sure you want to delete this transaction?"
+  (confirmed)="confirmDelete()" (cancelled)="showDeleteDialog.set(false)" />
+
+}
+}

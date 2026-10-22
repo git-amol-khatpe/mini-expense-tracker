@@ -1,0 +1,61 @@
+<div class="chart-container">
+
+  <div class="chart-legend">
+    <span>
+      <span class="legend-dot income-dot"></span>
+      Income
+    </span>
+
+    <span>
+      <span class="legend-dot expense-dot"></span>
+      Expense
+    </span>
+  </div>
+
+  <div class="chart-row">
+    <div class="chart-label">
+      <span class="chart-icon income-icon">
+        <i class="bi bi-arrow-up-right"></i>
+      </span>
+      <span>Income</span>
+    </div>
+
+    <div
+      class="bar-wrapper"
+      role="img"
+      [attr.aria-label]="'Income: ₹ ' + income()">
+      <div
+        class="bar income"
+        [style.width.%]="incomeWidth()">
+      </div>
+    </div>
+
+    <div class="chart-value income-value">
+      ₹ {{ income() }}
+    </div>
+  </div>
+
+  <div class="chart-row">
+    <div class="chart-label">
+      <span class="chart-icon expense-icon">
+        <i class="bi bi-arrow-down-left"></i>
+      </span>
+      <span>Expense</span>
+    </div>
+
+    <div
+      class="bar-wrapper"
+      role="img"
+      [attr.aria-label]="'Expense: ₹ ' + expense()">
+      <div
+        class="bar expense"
+        [style.width.%]="expenseWidth()">
+      </div>
+    </div>
+
+    <div class="chart-value expense-value">
+      ₹ {{ expense() }}
+    </div>
+  </div>
+
+</div>

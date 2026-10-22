@@ -1,0 +1,75 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "username": "amol",
+      "name": "System Admin",
+      "role": "admin",
+      "active": true
+    },
+    {
+      "id": "2",
+      "username": "bhagyashree",
+      "name": "Bhagyashree Khatpe",
+      "role": "user",
+      "active": true
+    },
+    {
+      "id": "3",
+      "username": "advik",
+      "name": "Advik Khatpe",
+      "role": "admin",
+      "active": true
+    },
+    {
+      "id": "4",
+      "username": "leo",
+      "name": "Leo Messi",
+      "role": "user",
+      "active": false
+    }
+  ],
+  "transactions": [
+    {
+      "id": "1",
+      "userId": 2,
+      "title": "Salary",
+      "type": "income",
+      "amount": 50000,
+      "category": "Job",
+      "date": "2025-01-02",
+      "notes": "Monthly salary"
+    },
+    {
+      "id": "2",
+      "userId": 2,
+      "title": "Groceries",
+      "type": "expense",
+      "amount": 10000,
+      "category": "Food",
+      "date": "2025-01-05",
+      "notes": "Weekly grocery shopping"
+    },
+    {
+      "id": "3",
+      "userId": 3,
+      "title": "Freelance Project",
+      "type": "income",
+      "amount": 1200,
+      "category": "Freelance",
+      "date": "2025-01-10",
+      "notes": "Web design work"
+    },
+    {
+      "userId": 2,
+      "title": "Salary",
+      "type": "income",
+      "amount": 100000,
+      "category": "Job Sept",
+      "date": "2026-10-01",
+      "notes": "This is salary",
+      "id": "FCzrzZAXjo4"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

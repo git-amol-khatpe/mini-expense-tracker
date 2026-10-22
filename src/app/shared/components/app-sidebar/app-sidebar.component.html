@@ -1,0 +1,62 @@
+<div class="sidebar p-3">
+
+  <div class="sidebar-heading">
+    <span class="section-label">WORKSPACE</span>
+  </div>
+
+  <ul class="nav flex-column sidebar-nav">
+
+    <li class="nav-item">
+      <a
+        routerLink="/dashboard"
+        routerLinkActive="active"
+        class="nav-link">
+
+        <i class="bi bi-grid-1x2"></i>
+        <span>Dashboard</span>
+
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a
+        routerLink="/transactions"
+        routerLinkActive="active"
+        class="nav-link">
+
+        <i class="bi bi-arrow-left-right"></i>
+        <span>Transactions</span>
+
+      </a>
+    </li>
+
+    @if (authService.isAdmin()) {
+      <li class="nav-item">
+        <a
+          routerLink="/admin/users"
+          routerLinkActive="active"
+          class="nav-link">
+
+          <i class="bi bi-people"></i>
+          <span>User Management</span>
+
+        </a>
+      </li>
+    }
+
+  </ul>
+
+  <div class="sidebar-bottom">
+    <div class="sidebar-tip">
+      <div class="tip-icon">
+        <i class="bi bi-lightbulb"></i>
+      </div>
+
+      <div class="tip-content">
+        <h6>Smart spending</h6>
+        <p>Keep track of where your money goes.</p>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,209 @@
+$primary: #635bff;
+$primary-dark: #4f46e5;
+$text-primary: #172033;
+$text-secondary: #7b8498;
+
+:host {
+  display: block;
+  min-width: 0;
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: inherit;
+}
+
+.transaction-table {
+  width: 100%;
+  min-width: 760px;
+  color: $text-primary;
+  border-collapse: separate;
+  border-spacing: 0;
+
+  thead th {
+    padding: 17px 20px;
+    border-bottom: 1px solid #e8ebf3;
+    background: #fafbfe;
+    color: #7b8498;
+    font-size: 14px;
+    font-weight: 750;
+    letter-spacing: 0.45px;
+    white-space: nowrap;
+  }
+
+  tbody td {
+    padding: 16px 20px;
+    border-bottom: 1px solid #f0f2f7;
+    background: #fff;
+    font-size: 15px;
+    vertical-align: middle;
+  }
+
+  tbody tr {
+    transition: background 0.15s ease;
+
+    &:hover td {
+      background: #fafaff;
+    }
+
+    &:last-child td {
+      border-bottom: 0;
+    }
+  }
+}
+
+// Transaction Title
+
+.transaction-title {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  min-width: 140px;
+  color: $text-primary;
+  font-weight: 650;
+}
+
+.transaction-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  border: 1px solid #e8e5ff;
+  border-radius: 11px;
+  background: #f3f2ff;
+  color: $primary;
+  font-size: 17px;
+}
+
+// Type Badge
+
+.transaction-type {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 7px;
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.type-income {
+  background: #e7f8f0;
+  color: #138561;
+}
+
+.type-expense {
+  background: #fff0f1;
+  color: #dc4d5a;
+}
+
+// Amount, Category and Date
+
+.transaction-amount {
+  color: $text-primary;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.category-label {
+  display: inline-block;
+  padding: 5px 9px;
+  border: 1px solid #e8ebf3;
+  border-radius: 7px;
+  background: #f8f9fc;
+  color: #596174;
+  font-size: 14px;
+  font-weight: 550;
+  white-space: nowrap;
+}
+
+.transaction-date {
+  color: $text-secondary;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+// Action Buttons
+
+.actionDiv {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 7px;
+}
+
+.btn-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 32px;
+  padding: 7px 10px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 650;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background 0.18s ease,
+    border-color 0.18s ease,
+    color 0.18s ease;
+
+  &:focus-visible {
+    outline: 3px solid rgba(99, 91, 255, 0.25);
+    outline-offset: 2px;
+  }
+}
+
+.btn-edit {
+  border-color: #e4e1ff;
+  background: #f5f4ff;
+  color: $primary-dark;
+
+  &:hover {
+    border-color: $primary;
+    background: #eeedff;
+    color: #3730a3;
+  }
+}
+
+.btn-delete {
+  border-color: #fee2e2;
+  background: #fff5f5;
+  color: #dc3545;
+
+  &:hover {
+    border-color: #fca5a5;
+    background: #fee2e2;
+    color: #b42332;
+  }
+}
+
+@media (max-width: 767px) {
+  .transaction-table {
+    min-width: 720px;
+
+    thead th {
+      padding: 14px 15px;
+    }
+
+    tbody td {
+      padding: 13px 15px;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .transaction-table tbody tr,
+  .btn-action {
+    transition: none;
+  }
+}

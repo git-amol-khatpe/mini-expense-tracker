@@ -1,0 +1,16 @@
+@if (transaction(); as transaction) {
+
+  <app-transaction-form
+    [initialValue]="{
+      userId: transaction.userId,
+      title: transaction.title,
+      type: transaction.type,
+      amount: transaction.amount,
+      category: transaction.category,
+      date: transaction.date,
+      notes: transaction.notes ?? ''
+    }"
+    (formSubmitted)="save($event)"
+  />
+
+}

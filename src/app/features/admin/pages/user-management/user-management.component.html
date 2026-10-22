@@ -1,0 +1,70 @@
+<div class="page-header">
+  <!-- Left: Title and Subtitle -->
+  <div class="page-heading">
+    <h1>User Management</h1>
+    <p>Manage and track your Users. <b>|</b> Users Count: {{ users().length }}</p>
+  </div>
+  <!-- Right: Actions -->
+  <div class="page-actions">
+  </div>
+</div>
+<div class="table-responsive">
+  <table class="table transaction-table align-middle mb-0">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Username</th>
+        <th scope="col">Role</th>
+        <th scope="col">Status</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      @if(users().length !=0){
+        @for (user of users(); track user.id) {
+        <tr>
+          <td>{{ user.name }}</td>
+          <td>
+            {{ user.username }}
+          </td>
+          <td>
+            <select class="form-select" #roleSelect>
+              <option value="admin" [selected]="user.role === 'admin'">
+                Admin
+              </option>
+              <option value="user" [selected]="user.role === 'user'">
+                User
+              </option>
+            </select>
+          </td>
+          <td>
+            @if (user.active) {
+            <span class="badge bg-success">
+              Active
+            </span>
+            } @else {
+            <span class="badge bg-danger">
+              Inactive
+            </span>
+            }
+          </td>
+          <td>
+            <button class="btn btn-primary btn-sm me-2" 
+            (click)="updateRole(user.id,roleSelect.value)">
+              Save Role
+            </button>
+            <button class="btn btn-warning btn-sm" (click)="toggleStatus(user)">
+              Toggle Status
+            </button>
+          </td>
+        </tr>
+        }
+      }
+      @else{
+        <tr>
+          <td colspan="5"><h5 class="text-center mt-5 mb-5">Users not found</h5></td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>

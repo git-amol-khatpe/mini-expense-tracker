@@ -1,0 +1,38 @@
+<!-- <div class="card">
+  <h3>{{ title() }}</h3>
+  <div class="value">
+    ₹ {{ value() | number }}
+  </div>
+</div> -->
+
+<div
+  class="stat-card"
+  [class.income-card]="title() === 'Total Income'"
+  [class.expense-card]="title() === 'Total Expense'"
+  [class.cashflow-card]="title() === 'Net Cash Flow'">
+
+  <div class="stat-card-top">
+    <div class="stat-icon">
+      @if (title() === 'Total Income') {
+        <i class="bi bi-wallet2"></i>
+      } @else if (title() === 'Total Expense') {
+        <i class="bi bi-credit-card"></i>
+      } @else {
+        <i class="bi bi-graph-up-arrow"></i>
+      }
+    </div>
+
+    <span class="stat-label">{{ title() }}</span>
+  </div>
+
+  <div class="stat-value">
+    <span class="currency">₹</span>
+    <span>{{ value() | number }}</span>
+  </div>
+
+  <div class="stat-card-footer">
+    <span class="footer-dot"></span>
+    Financial overview
+  </div>
+
+</div>
